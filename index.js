@@ -30,7 +30,7 @@ console.log("here")
 
 // quick-mongo-super
 const connectionURI = process.env.MONGO_URI
-const { QuickMongoClient, QuickMongo } = require('quick-mongo-super')
+import { QuickMongoClient, QuickMongo } from 'quick-mongo-super'
 const quickMongoClient = new QuickMongoClient(connectionURI)
 
 const main = async () => {
