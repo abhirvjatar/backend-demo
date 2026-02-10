@@ -32,35 +32,35 @@ const connectionURI = process.env.MONGO_URI
 const { QuickMongoClient, QuickMongo } = require('quick-mongo-super')
 const quickMongoClient = new QuickMongoClient(connectionURI)
 
-// const main = async () => {
+const main = async () => {
 
-//   await quickMongoClient.connect()
-//   const mongo = new QuickMongo(quickMongoClient, {
-//     name: 'database',
-//     collectionName: 'collectionName' // (optional)
-//   })
+  await quickMongoClient.connect()
+  const mongo = new QuickMongo(quickMongoClient, {
+    name: 'database',
+    collectionName: 'collectionName' // (optional)
+  })
 
-//   // Set a value with KEY:VALUE (key o)
-//   await mongo.set('exampleKey', 'somevalue')
+  // Set a value with KEY:VALUE (key o)
+  await mongo.set('exampleKey', 'somevalue')
 
-//   // Check if it exists: booleans.
-//   const isSimpleValueInDatabase = mongo.has('exampleKey')
-//   console.log(isSimpleValueInDatabase) // -> true
+  // Check if it exists: booleans.
+  const isSimpleValueInDatabase = mongo.has('exampleKey')
+  console.log(isSimpleValueInDatabase) // -> true
 
-//   // Get a value with KEY
-//   const value = mongo.get('exampleKey')
-//   print(value) // -> 'somevalue'
+  // Get a value with KEY
+  const value = mongo.get('exampleKey')
+  print(value) // -> 'somevalue'
 
-// }
-// main()
+}
+main()
 
-// quickMongoClient.on('connect', () => {
-//     console.log('Connected to MongoDB.')
-// })
+quickMongoClient.on('connect', () => {
+    console.log('Connected to MongoDB.')
+})
 
-// quickMongoClient.on('disconnect', () => {
-//     console.log('Disconnected from MongoDB.')
-// })
+quickMongoClient.on('disconnect', () => {
+    console.log('Disconnected from MongoDB.')
+})
 
 
 // UUID: Creates randomized UUID to make message and comment IDs.
