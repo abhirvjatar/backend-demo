@@ -49,7 +49,7 @@ const main = async () => {
 
   // Get a value with KEY
   const value = mongo.get('exampleKey')
-  print(value) // -> 'somevalue'
+  console.log(value) // -> 'somevalue'
 
 }
 main()
