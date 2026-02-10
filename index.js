@@ -24,8 +24,9 @@ app.get('/messageBoard', (req, res) => {
 
 // Start the server!
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Servekjr running at http://localhost:${port}`);
 });
+console.log("here")
 
 // quick-mongo-super
 const connectionURI = process.env.MONGO_URI
