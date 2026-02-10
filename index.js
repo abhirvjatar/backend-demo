@@ -2,15 +2,14 @@
 
 // EXPRESS JS: Lets us make routes and stuff.
 import express from 'express';
+
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
 const port = 3000; // use port 3000
-
 
 // Serve the static landing page at the "/" url.
 app.get('/', (req, res) => {
@@ -30,38 +29,38 @@ console.log("here")
 
 // quick-mongo-super
 const connectionURI = process.env.MONGO_URI
-import { QuickMongoClient, QuickMongo } from 'quick-mongo-super'
+const { QuickMongoClient, QuickMongo } = require('quick-mongo-super')
 const quickMongoClient = new QuickMongoClient(connectionURI)
 
-const main = async () => {
+// const main = async () => {
 
-  await quickMongoClient.connect()
-  const mongo = new QuickMongo(quickMongoClient, {
-    name: 'database',
-    collectionName: 'collectionName' // (optional)
-  })
+//   await quickMongoClient.connect()
+//   const mongo = new QuickMongo(quickMongoClient, {
+//     name: 'database',
+//     collectionName: 'collectionName' // (optional)
+//   })
 
-  // Set a value with KEY:VALUE (key o)
-  await mongo.set('exampleKey', 'somevalue')
+//   // Set a value with KEY:VALUE (key o)
+//   await mongo.set('exampleKey', 'somevalue')
 
-  // Check if it exists: booleans.
-  const isSimpleValueInDatabase = mongo.has('exampleKey')
-  console.log(isSimpleValueInDatabase) // -> true
+//   // Check if it exists: booleans.
+//   const isSimpleValueInDatabase = mongo.has('exampleKey')
+//   console.log(isSimpleValueInDatabase) // -> true
 
-  // Get a value with KEY
-  const value = mongo.get('exampleKey')
-  print(value) // -> 'somevalue'
+//   // Get a value with KEY
+//   const value = mongo.get('exampleKey')
+//   print(value) // -> 'somevalue'
 
-}
-main()
+// }
+// main()
 
-quickMongoClient.on('connect', () => {
-    console.log('Connected to MongoDB.')
-})
+// quickMongoClient.on('connect', () => {
+//     console.log('Connected to MongoDB.')
+// })
 
-quickMongoClient.on('disconnect', () => {
-    console.log('Disconnected from MongoDB.')
-})
+// quickMongoClient.on('disconnect', () => {
+//     console.log('Disconnected from MongoDB.')
+// })
 
 
 // UUID: Creates randomized UUID to make message and comment IDs.
